@@ -1,0 +1,2 @@
+rootProject.name = 'chat'
+enableFeaturePreview('IMPROVED_POM_SUPPORT')

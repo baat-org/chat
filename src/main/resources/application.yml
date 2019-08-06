@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    initialize: ${DATABASE_INITIALISE}
+    connectionProperties: useUnicode=true;characterEncoding=utf-8
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: ${SERVER_PORT}
+
+user_service_uri: ${USER_SERVICE_URI}
