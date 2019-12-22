@@ -12,5 +12,3 @@ spring:
 
 server:
   port: ${SERVER_PORT}
-
-user_service_uri: ${USER_SERVICE_URI}

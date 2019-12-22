@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class UserErrorHandler extends ResponseEntityExceptionHandler {
+public class ChatErrorHandler extends ResponseEntityExceptionHandler {
 	//TODO bean validation framework
 	//	@ExceptionHandler({MethodArgumentNotValidException.class})
 	//	public ResponseEntity<String> handleMethodArgumentNotValidException(final MethodArgumentNotValidException ex) {
