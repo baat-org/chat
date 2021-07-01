@@ -1,10 +1,8 @@
-FROM adoptopenjdk/openjdk15:alpine-jre
-
-# Dockerfile author / maintainer
+FROM sachingoyaldocker/baat-org-custom-jre15:latest
 MAINTAINER Sachin Goyal <sachin.goyal.se@gmail.com>
+VOLUME /opt
+ARG SERVICE=service
 
-VOLUME /opt/chat
+ADD build/libs/$SERVICE.jar /opt/service/service.jar
 
-ADD build/libs/chat*.jar /opt/chat/chat.jar
-
-ENTRYPOINT ["java","-jar","/opt/chat/chat.jar"]
+ENTRYPOINT ["java","-jar","/opt/service/service.jar"]
