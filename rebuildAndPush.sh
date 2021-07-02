@@ -1,5 +1,7 @@
-docker rmi $(docker images -qa 'sachingoyaldocker/baat-org-chat')
+SERVICE=${PWD##*/}
+VERSION=latest
 
-./gradlew clean build bootJar
-docker build --no-cache -t sachingoyaldocker/baat-org-chat:1.0 . 
-docker push sachingoyaldocker/baat-org-chat:1.0
+./gradlew clean build
+docker rmi $(docker images -qa 'sachingoyaldocker/baat-org-'$SERVICE)
+docker build --no-cache -t sachingoyaldocker/baat-org-$SERVICE:$VERSION --build-arg SERVICE=$SERVICE .
+docker push sachingoyaldocker/baat-org-$SERVICE:$VERSION
