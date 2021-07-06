@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @RestController
 public class ChatController {
@@ -20,18 +22,9 @@ public class ChatController {
 
     @CrossOrigin
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public void handleMessage(@RequestBody final ChatMessage chatMessage) throws IllegalAccessException, JsonProcessingException {
-        if (chatMessage == null) {
-            throw new IllegalArgumentException("chatMessage must be passed");
-        }
-        if (StringUtils.isEmpty(chatMessage.getSenderUserToken())) {
-            throw new IllegalArgumentException("sender User Token must be passed");
-        }
-        if (StringUtils.isEmpty(chatMessage.getTextMessage())) {
-            throw new IllegalArgumentException("text message must be passed");
-        }
+    public void handleMessage(@Valid @NotNull @RequestBody final ChatMessage chatMessage) throws JsonProcessingException {
         if (chatMessage.getRecipientChannelId() == null && chatMessage.getRecipientUserId() == null) {
-            throw new IllegalArgumentException("recipient channel Id or user Id must be passed");
+            throw new IllegalArgumentException("Either of recipient channel Id or user Id must be passed");
         }
 
         LOGGER.info("Got a message: {}", chatMessage.getTextMessage());

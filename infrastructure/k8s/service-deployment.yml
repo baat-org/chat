@@ -15,7 +15,7 @@ spec:
         app: chat
     spec:
       containers:
-        - name: user
+        - name: chat
           image: sachingoyaldocker/baat-org-chat:latest
           env:
             - name: SERVER_PORT

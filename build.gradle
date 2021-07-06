@@ -25,6 +25,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web:${project.springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-amqp:${project.springBootVersion}"
     implementation "org.springframework.boot:spring-boot-starter-data-jpa:${project.springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:${project.springBootVersion}"
     implementation "org.apache.commons:commons-lang3:${project.commonsLang3Version}"
     implementation "mysql:mysql-connector-java:${project.mySQLConnectorVersion}"
     implementation "org.baat:core:${project.baatCoreVersion}"
