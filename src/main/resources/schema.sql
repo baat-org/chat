@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS `chat_message` (
   `recipient_user_id` bigint(20),
   `text_message` text NOT NULL,
   `updated_at` timestamp NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
