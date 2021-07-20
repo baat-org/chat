@@ -33,7 +33,7 @@ public class ChatController {
             throw new IllegalArgumentException("Either of recipient channel Id or user Id must be passed");
         }
 
-        chatService.createChatMessage(chatMessage);
+        chatService.storeChatMessage(chatMessage);
         wsChatMessagePublisher.convertAndSend(ChatApplication.CHAT_WS_EXCHANGE_NAME, "", createRawChatWSMessage(chatMessage));
     }
 
