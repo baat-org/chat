@@ -9,6 +9,6 @@ import java.util.List;
 public interface ChatMessageRepository extends JpaRepository<ChatMessageEntity, Long> {
     List<ChatMessageEntity> findByRecipientChannelIdOrderByUpdatedAtAsc(Long channelId);
 
-    @Query("SELECT c FROM ChatMessageEntity c WHERE (u.senderUserId = ?1 and u.name = ?2) or (u.senderUserId = ?2 and u.name = ?1)")
+    @Query("SELECT c FROM ChatMessageEntity c WHERE (c.senderUserId = ?1 and c.recipientUserId = ?2) or (c.senderUserId = ?2 and c.recipientUserId = ?1)")
     List<ChatMessageEntity> findAllDirectMessages(Long firstUserId, Long secondUserId);
 }

@@ -16,6 +16,9 @@ public class ChatMessageEntity {
     private String textMessage;
     private LocalDateTime updatedAt;
 
+    public ChatMessageEntity() {
+    }
+
     public ChatMessageEntity(Long id, Long senderUserId, Long recipientChannelId, Long recipientUserId, String textMessage, LocalDateTime updatedAt) {
         this.id = id;
         this.senderUserId = senderUserId;

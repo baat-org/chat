@@ -39,9 +39,9 @@ public class ChatController {
 
     @CrossOrigin
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<ChatMessage> getChats(@RequestParam(name = "channelId") @Positive final Long channelId,
-                                      @RequestParam(name = "firstUserId") @Positive final Long firstUserId,
-                                      @RequestParam(name = "secondUserId") @Positive final Long secondUserId) {
+    public List<ChatMessage> getChats(@RequestParam(name = "channelId", required = false) @Positive final Long channelId,
+                                      @RequestParam(name = "firstUserId", required = false) @Positive final Long firstUserId,
+                                      @RequestParam(name = "secondUserId", required = false) @Positive final Long secondUserId) {
         return chatService.getChats(channelId, firstUserId, secondUserId);
     }
 
